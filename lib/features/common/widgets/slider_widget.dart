@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vertical_weight_slider/vertical_weight_slider.dart';
-
-import '../../../assets/text/text_style.dart';
+import 'package:workout/assets/text/text_style.dart';
 
 class SliderWidget extends StatefulWidget {
   const SliderWidget({

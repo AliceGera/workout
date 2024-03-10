@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import '../common/widgets/di_scope/di_scope.dart';
+import 'package:workout/features/common/widgets/di_scope/di_scope.dart';
+
 import 'di/app_scope.dart';
 
-/// App widget.
 class App extends StatefulWidget {
-  /// Scope of dependencies which need through all app's life.
   final AppScope appScope;
 
-  /// Create an instance App.
   const App(this.appScope, {super.key});
 
   @override
@@ -43,10 +41,9 @@ class _AppState extends State<App> {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
-        supportedLocales: [
-          const Locale('ru', 'RU'),
+        supportedLocales: const [
+          Locale('ru', 'RU'),
         ],
-
         routeInformationParser: _scope.router.defaultRouteParser(),
         routerDelegate: _scope.router.delegate(),
       ),
