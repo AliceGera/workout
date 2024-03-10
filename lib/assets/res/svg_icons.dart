@@ -1,0 +1,43 @@
+class SvgIcons {
+  SvgIcons._();
+
+  static const String openArrow = 'assets/icons/open_arrow.svg';
+  static const String parameters = 'assets/icons/parameters.svg';
+  static const String parametersActive = 'assets/icons/parameters_active.svg';
+  static const String workoutActive = 'assets/icons/workout_active.svg';
+  static const String workout = 'assets/icons/workout.svg';
+  static const String schedule = 'assets/icons/schedule.svg';
+  static const String scheduleActive = 'assets/icons/schedule_active.svg';
+  static const String faq = 'assets/icons/faq.svg';
+  static const String faqActive = 'assets/icons/faq_active.svg';
+  static const String settings = 'assets/icons/settings.svg';
+  static const String settingsActive = 'assets/icons/settings_active.svg';
+  static const String infoCircle = 'assets/icons/info_circle.svg';
+  static const String person = 'assets/icons/person.svg';
+  static const String train = 'assets/icons/train.svg';
+  static const String oldExercise = 'assets/icons/old_exercise.svg';
+  static const String fillHeart = 'assets/icons/fill_heart.svg';
+  static const String security = 'assets/icons/security.svg';
+  static const String userAgreement = 'assets/icons/user_agreement.svg';
+  static const String rateApp = 'assets/icons/rate_app.svg';
+  static const String weight = 'assets/icons/weight.svg';
+  static const String restart = 'assets/icons/restart.svg';
+  static const String body = 'assets/icons/body.svg';
+  static const String increment = 'assets/icons/increment.svg';
+  static const String decrement = 'assets/icons/decrement.svg';
+  static const String firstParameter = 'assets/icons/first_parameter.svg';
+  static const String secondParameter = 'assets/icons/second_parameter.svg';
+  static const String weightParameter = 'assets/icons/weight_parameter.svg';
+  static const String fourthParameter = 'assets/icons/fourth_parameter.svg';
+  static const String graph = 'assets/icons/graph.svg';
+  static const String trash = 'assets/icons/trash.svg';
+  static const String splash = 'assets/icons/splash.svg';
+  static const String refresh = 'assets/icons/refresh.svg';
+  static const String arrow = 'assets/icons/arrow.svg';
+  static const String rightArrow = 'assets/icons/right_arrow.svg';
+  static const String leftArrow = 'assets/icons/left_arrow.svg';
+  static const String calendar = 'assets/icons/calendar.svg';
+  static const String time = 'assets/icons/time.svg';
+  static const String choose = 'assets/icons/choose.svg';
+  static const String emptyHeart = 'assets/icons/empty_heart.svg';
+}
