@@ -42,68 +42,70 @@ class AddExerciseScreen extends ElementaryWidget<IAddExerciseScreenWidgetModel> 
           ),
         ),
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-            child: ValueListenableBuilder<ExerciseData>(
-              builder: (context, exercise, child) {
-                return Column(
-                  children: [
-                    AppTextFieldWidget(
-                      controller: wm.exerciseNameController,
-                      labelText: 'Название',
-                      hintText: 'Введите название',
-                    ),
-                    AppTextFieldWidget(
-                      controller: wm.workingWeightController,
-                      labelText: 'Рабочий вес',
-                      hintText: 'Укажите вес',
-                    ),
-                    AppTextFieldWidget(
-                      controller: wm.repetitionsNumberController,
-                      labelText: 'Колличество повторений',
-                      hintText: 'Укажите колличество повторений',
-                    ),
-                    AppTextFieldWidget(
-                      controller: wm.commentController,
-                      labelText: 'Комментарий к выполнению',
-                      hintText: 'Укажите комментарий',
-                      lines: 2,
-                    ),
-                    const Spacer(),
-                    AppButtonWidget(
-                      title: 'Сохранить',
-                      onPressed: (exercise.exerciseName.isNotEmpty &&
-                              exercise.workingWeight.isNotEmpty &&
-                              exercise.repetitionsNumber.isNotEmpty &&
-                              exercise.comment.isNotEmpty)
-                          ? () async {
-                              await wm.addExercise();
-                              loadAgain.call();
-                            }
-                          : null,
-                      color: (exercise.exerciseName.isNotEmpty &&
-                          exercise.workingWeight.isNotEmpty &&
-                          exercise.repetitionsNumber.isNotEmpty &&
-                          exercise.comment.isNotEmpty)
-                          ? AppColors.blue
-                          : AppColors.white,
-                      textColor: (exercise.exerciseName.isNotEmpty &&
-                          exercise.workingWeight.isNotEmpty &&
-                          exercise.repetitionsNumber.isNotEmpty &&
-                          exercise.comment.isNotEmpty)
-                          ? AppColors.black
-                          : AppColors.blue,
-                      borderColor: (exercise.exerciseName.isNotEmpty &&
-                          exercise.workingWeight.isNotEmpty &&
-                          exercise.repetitionsNumber.isNotEmpty &&
-                          exercise.comment.isNotEmpty)
-                          ? AppColors.blue
-                          : AppColors.blue,
-                    ),
-                  ],
-                );
-              },
-              valueListenable: wm.exercisesState,
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+              child: ValueListenableBuilder<ExerciseData>(
+                builder: (context, exercise, child) {
+                  return Column(
+                    children: [
+                      AppTextFieldWidget(
+                        controller: wm.exerciseNameController,
+                        labelText: 'Название',
+                        hintText: 'Введите название',
+                      ),
+                      AppTextFieldWidget(
+                        controller: wm.workingWeightController,
+                        labelText: 'Рабочий вес',
+                        hintText: 'Укажите вес',
+                        keyboardType: TextInputType.number,
+                      ),
+                      AppTextFieldWidget(
+                        controller: wm.repetitionsNumberController,
+                        labelText: 'Колличество повторений',
+                        hintText: 'Укажите колличество повторений',
+                        keyboardType: TextInputType.number,
+                      ),
+                      AppTextFieldWidget(
+                        controller: wm.commentController,
+                        labelText: 'Комментарий к выполнению',
+                        hintText: 'Укажите комментарий',
+                        lines: 2,
+                      ),
+                      AppButtonWidget(
+                        title: 'Сохранить',
+                        onPressed: (exercise.exerciseName.isNotEmpty &&
+                                exercise.workingWeight.isNotEmpty &&
+                                exercise.repetitionsNumber.isNotEmpty )
+                            ? () async {
+                                await wm.addExercise();
+                                loadAgain.call();
+                              }
+                            : null,
+                        color: (exercise.exerciseName.isNotEmpty &&
+                            exercise.workingWeight.isNotEmpty &&
+                            exercise.repetitionsNumber.isNotEmpty &&
+                            exercise.comment.isNotEmpty)
+                            ? AppColors.blue
+                            : AppColors.white,
+                        textColor: (exercise.exerciseName.isNotEmpty &&
+                            exercise.workingWeight.isNotEmpty &&
+                            exercise.repetitionsNumber.isNotEmpty &&
+                            exercise.comment.isNotEmpty)
+                            ? AppColors.black
+                            : AppColors.blue,
+                        borderColor: (exercise.exerciseName.isNotEmpty &&
+                            exercise.workingWeight.isNotEmpty &&
+                            exercise.repetitionsNumber.isNotEmpty &&
+                            exercise.comment.isNotEmpty)
+                            ? AppColors.blue
+                            : AppColors.blue,
+                      ),
+                    ],
+                  );
+                },
+                valueListenable: wm.exercisesState,
+              ),
             ),
           ),
         ),

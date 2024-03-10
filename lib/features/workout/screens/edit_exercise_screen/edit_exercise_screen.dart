@@ -42,58 +42,67 @@ class EditExerciseScreen extends ElementaryWidget<IEditExerciseScreenWidgetModel
           child: AppAppBarWidget(
             title: 'Редактировать упражнение',
             onPressed: wm.closeScreen,
-             /* deleteIcon:SvgIcons.trash,
+            /* deleteIcon:SvgIcons.trash,
               onPressedDelete:(){wm.deleteExercise.call(exercise);}*/
           ),
         ),
         body: ValueListenableBuilder<ExerciseData>(
           builder: (context, editExercise, child) {
-            return SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
-                child: Column(
-                  children: [
-                    AppTextFieldWidget(controller: wm.exerciseNameController, labelText: 'Название', hintText: 'Введите название'),
-                    AppTextFieldWidget(controller: wm.workingWeightController, labelText: 'Рабочий вес', hintText: 'Укажите вес'),
-                    AppTextFieldWidget(controller: wm.repetitionsNumberController, labelText: 'Колличество повторений', hintText: 'Укажите колличество повторений'),
-                    AppTextFieldWidget(
-                      controller: wm.commentController,
-                      labelText: 'Комментарий к выполнению',
-                      hintText: 'Укажите комментарий',
-                      lines: 2,
-                    ),
-                    const Spacer(),
-                     AppButtonWidget(
-                      title: 'Сохранить',
-                       onPressed: (editExercise.exerciseName.isNotEmpty &&
-                           editExercise.workingWeight.isNotEmpty &&
-                           editExercise.repetitionsNumber.isNotEmpty &&
-                           editExercise.comment.isNotEmpty)
-                           ? () async {
-                         await wm.editExercise();
-                         //loadAgain.call();
-                       }
-                           : null,
-                       color: (editExercise.exerciseName.isNotEmpty &&
-                           editExercise.workingWeight.isNotEmpty &&
-                           editExercise.repetitionsNumber.isNotEmpty &&
-                           editExercise.comment.isNotEmpty)
-                           ? AppColors.blue
-                           : AppColors.white,
-                       textColor: (editExercise.exerciseName.isNotEmpty &&
-                           editExercise.workingWeight.isNotEmpty &&
-                           editExercise.repetitionsNumber.isNotEmpty &&
-                           editExercise.comment.isNotEmpty)
-                           ? AppColors.black
-                           : AppColors.blue,
-                       borderColor: (editExercise.exerciseName.isNotEmpty &&
-                           editExercise.workingWeight.isNotEmpty &&
-                           editExercise.repetitionsNumber.isNotEmpty &&
-                           editExercise.comment.isNotEmpty)
-                           ? AppColors.blue
-                           : AppColors.blue,
-                    ),
-                  ],
+            return SingleChildScrollView(
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+                  child: Column(
+                    children: [
+                      AppTextFieldWidget(controller: wm.exerciseNameController, labelText: 'Название', hintText: 'Введите название'),
+                      AppTextFieldWidget(
+                        controller: wm.workingWeightController,
+                        labelText: 'Рабочий вес',
+                        hintText: 'Укажите вес',
+                        keyboardType: TextInputType.number,
+                      ),
+                      AppTextFieldWidget(
+                        controller: wm.repetitionsNumberController,
+                        labelText: 'Колличество повторений',
+                        hintText: 'Укажите колличество '
+                            'повторений',
+                        keyboardType: TextInputType.number,
+                      ),
+                      AppTextFieldWidget(
+                        controller: wm.commentController,
+                        labelText: 'Комментарий к выполнению',
+                        hintText: 'Укажите комментарий',
+                        lines: 2,
+                      ),
+
+                      AppButtonWidget(
+                        title: 'Сохранить',
+                        onPressed: (editExercise.exerciseName.isNotEmpty && editExercise.workingWeight.isNotEmpty && editExercise.repetitionsNumber.isNotEmpty)
+                            ? () async {
+                                await wm.editExercise();
+                              }
+                            : null,
+                        color: (editExercise.exerciseName.isNotEmpty &&
+                                editExercise.workingWeight.isNotEmpty &&
+                                editExercise.repetitionsNumber.isNotEmpty &&
+                                editExercise.comment.isNotEmpty)
+                            ? AppColors.blue
+                            : AppColors.white,
+                        textColor: (editExercise.exerciseName.isNotEmpty &&
+                                editExercise.workingWeight.isNotEmpty &&
+                                editExercise.repetitionsNumber.isNotEmpty &&
+                                editExercise.comment.isNotEmpty)
+                            ? AppColors.black
+                            : AppColors.blue,
+                        borderColor: (editExercise.exerciseName.isNotEmpty &&
+                                editExercise.workingWeight.isNotEmpty &&
+                                editExercise.repetitionsNumber.isNotEmpty &&
+                                editExercise.comment.isNotEmpty)
+                            ? AppColors.blue
+                            : AppColors.blue,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             );
