@@ -149,10 +149,12 @@ class _TableEventsExampleState extends State<TableEventsExample> {
     final selectedDay = DateUtils.dateOnly(selected);
     final focusedDay = DateUtils.dateOnly(focused);
     if (!isSameDay(_selectedDay, selectedDay)) {
-      setState(() {
-        _selectedDay = selectedDay;
-        _focusedDay = focusedDay;
-      });
+      setState(
+        () {
+          _selectedDay = selectedDay;
+          _focusedDay = focusedDay;
+        },
+      );
       _selectedEvents.value = _getRecordsForDay(selectedDay);
     }
   }
@@ -177,26 +179,28 @@ class _TableEventsExampleState extends State<TableEventsExample> {
               calendarFormat: _calendarFormat,
               locale: 'ru',
               headerStyle: HeaderStyle(
-                formatButtonVisible: false, // Hide the default format button
-                titleCentered: true, // Center the title
+                formatButtonVisible: false,
+                titleCentered: true,
                 leftChevronIcon: SvgPicture.asset(
                   SvgIcons.leftArrow,
                   color: AppColors.white,
-                ), // Set custom icon for left arrow
-                rightChevronIcon: SvgPicture.asset(SvgIcons.rightArrow), // Set custom icon for right arrow
+                ),
+                rightChevronIcon: SvgPicture.asset(SvgIcons.rightArrow),
               ),
-              calendarBuilders: CalendarBuilders(singleMarkerBuilder: (ctx, dateTime, recordData) {
-                return Container(
-                  width: 16,
-                  height: 4,
-                  decoration: const BoxDecoration(
-                    color: AppColors.green,
-                    borderRadius: BorderRadius.all(
-                      Radius.elliptical(400, 100),
+              calendarBuilders: CalendarBuilders(
+                singleMarkerBuilder: (ctx, dateTime, recordData) {
+                  return Container(
+                    width: 16,
+                    height: 4,
+                    decoration: const BoxDecoration(
+                      color: AppColors.green,
+                      borderRadius: BorderRadius.all(
+                        Radius.elliptical(400, 100),
+                      ),
                     ),
-                  ),
-                );
-              }),
+                  );
+                },
+              ),
               calendarStyle: CalendarStyle(
                 outsideTextStyle: const TextStyle(
                   color: Colors.white,
@@ -215,13 +219,6 @@ class _TableEventsExampleState extends State<TableEventsExample> {
               eventLoader: _getRecordsForDay,
               startingDayOfWeek: StartingDayOfWeek.monday,
               onDaySelected: _onDaySelected,
-              /*onFormatChanged: (format) {
-                if (_calendarFormat != format) {
-                  setState(() {
-                    _calendarFormat = format;
-                  });
-                }
-              },*/
               onPageChanged: (focusedDay) {
                 _focusedDay = focusedDay;
               },
@@ -261,7 +258,7 @@ class _TableEventsExampleState extends State<TableEventsExample> {
                                     children: [
                                       Expanded(
                                         child: Text(
-                                           values[index].recordWorkoutName,
+                                          values[index].recordWorkoutName,
                                           overflow: TextOverflow.ellipsis,
                                           style: AppTextStyle.medium26.value.copyWith(
                                             color: Colors.black,

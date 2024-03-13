@@ -123,6 +123,7 @@ class ExerciseScreen extends ElementaryWidget<IExerciseScreenWidgetModel> {
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 6),
                       child: Container(
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(8),
                           color: Colors.white,
